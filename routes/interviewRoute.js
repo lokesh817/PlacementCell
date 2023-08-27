@@ -1,0 +1,15 @@
+const express=require('express');
+const router=express.Router();
+const auth=require("../config/auth");
+const{ addInterview, editInterview, viewInterview, renderInterviewForm ,assignInterview,updateInterviewResult,Report}= require('../controllers/interview_Controller');
+const setLocals=require("../config/setLocals");
+router.use(auth);
+router.use(setLocals);
+router.get('/add-interview',renderInterviewForm);
+router.post('/add-interview',addInterview);
+router.get('/edit_interview',editInterview);
+router.post('/assign-interview',assignInterview);
+router.get('/view_interview',viewInterview);
+router.post('/update-result',updateInterviewResult);
+router.get('/Report',Report);
+module.exports = router;

@@ -1,0 +1,55 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/interview/assign-interview" method="POST" class="p-4 bg-light border rounded">
+                <h1>Assign Interview</h1>
+                <div class="mb-3">
+                    <label for="InterviewId" class="form-label">Interview ID</label>
+                    <input type="text" class="form-control" id="InterviewId" name="InterviewId" readonly value="<%= interview.InterviewId %>">
+                </div>
+                <div class="mb-3">
+                    <label>Select Students:</label>
+                    <% students.forEach(student => { %>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="<%= student.StudentId %>" name="selectedStudents" value="<%= student.StudentId %>">
+                            <label class="form-check-label" for="<%= student.StudentId %>"><%= student.StudentName %></label>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form action="/interview/update-result" method="Post" class="p-4 bg-light border rounded">
+                <h1>Update Result</h1>
+                
+                <div class="mb-3">
+                    <label for="InterviewId" class="form-label">Interview ID</label>
+                    <input type="text" class="form-control" id="InterviewId" name="InterviewId" readonly value="<%= interview.InterviewId %>">
+                </div>
+                <div class="mb-3">
+                    <label for="studentID" class="form-label">Student</label>
+                    <select class="form-select" id="studentID" name="studentID">
+                        <% interviewStudents.forEach(student => { %>
+                            <option value="<%= student.StudentId %>"><%= student.StudentName %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="result" class="form-label">Result</label>
+                    <select class="form-select" id="result" name="result">
+                        <option value="PASS">PASS</option>
+                        <option value="FAIL">FAIL</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Did not Attempt">Did not Attempt</option>
+                    </select>
+                    
+                </div>
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </form>
+            
+            <a href="/interview/Report?interviewid=<%= interview.InterviewId %>" class="btn btn-primary mt-3 col-md-12"> Download Report</a>
+        </div> 
+    </div>
+</div>

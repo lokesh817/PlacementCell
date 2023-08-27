@@ -1,0 +1,95 @@
+<%
+    function formatDate(date) {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(date).toLocaleDateString(undefined, options);
+    }
+%>
+<div class="table-responsive">
+    
+    <div class="stylish-caption text-center bg-white" style="margin: 1% 5% 0%;"><h3>Placement Record</h3><hr class="w-100" style="height: 4px;background-color: blue;margin :0;" ></div>
+    <div class=" bg-white p-3" style="margin: 0% 5% 0%; overflow-y: scroll; max-height: 600px;">
+        <table class="table table-bordered display" id="example">
+            <thead class="thead-dark">
+                <tr>
+                    <th>SID</th>
+                    <th>SName</th>
+                    <th>College</th>
+                    <th>Status</th>
+                    <th>DSA</th>
+                    <th>WEB</th>
+                    <th>React</th>
+                    <th>Interview Date</th>
+                    <th>Company</th>
+                    <th>Job Role</th>
+                    <th>Result</th>    
+                </tr>
+            </thead>
+            <tbody>          
+                <% Students.forEach(student => { %>
+                    <% if (student.Interviews.length === 0) { %>
+                        <tr>
+                            <td><%= student.StudentId %></td>
+                            <td><%= student.StudentName %></td> 
+                            <td><%= student.College %></td> 
+                            <td><%= student.Status %></td> 
+                            <% let courseFound = false; %>    
+                                <% Courses.forEach(function(courseObj) { %>
+                                    <% if (courseObj.studentId._id.toString() === student._id.toString()) { %>
+                                        <td><%= courseObj.DSAFinalScore %></td>
+                                        <td><%= courseObj.WebDFinalScore %></td>
+                                        <td><%= courseObj.ReactFinalScore %></td>
+                                        <% courseFound = true; %>
+                                    <% } %>
+                                <% }) %>
+                                <% if (!courseFound) { %>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                <% } %>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>null</td>
+                        </tr>
+                    <% } else { %>
+                        <% student.Interviews.forEach(Interview => { %> 
+                            <tr>
+                                <td><%= student.StudentId %></td>
+                                <td><%= student.StudentName %></td> 
+                                <td><%= student.College %></td> 
+                                <td><%= student.Status %></td> 
+                                <% let courseFound = false; %>    
+                                <% Courses.forEach(function(courseObj) { %>
+                                    <% if (courseObj.studentId._id.toString() === student._id.toString()) { %>
+                                        <td><%= courseObj.DSAFinalScore %></td>
+                                        <td><%= courseObj.WebDFinalScore %></td>
+                                        <td><%= courseObj.ReactFinalScore %></td>
+                                        <% courseFound = true; %>
+                                    <% } %>
+                                <% }) %>
+                                <% if (!courseFound) { %>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                <% } %>
+                                <td><%= formatDate(Interview.Date) %></td>
+                                <td><%= Interview.CompanyName %></td>
+                                <td><%= Interview.JobRole %></td>
+                                <% let ResultFound = false; %>
+                                <% Result.forEach(function(resultObj) { %>
+                                    <% if (resultObj.interview._id.toString() === Interview._id.toString() && resultObj.student._id.toString() === student._id.toString()) { %>
+                                        <td><%= resultObj.result %></td>
+                                        <% ResultFound = true; %>
+                                    <% } %>
+                                <% }) %>
+                                <% if (!ResultFound) { %>
+                                    <td>null</td>
+                                <% } %>
+                            </tr>
+                        <% }); %>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>

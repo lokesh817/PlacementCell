@@ -1,0 +1,10 @@
+const express=require('express');
+const router=express.Router();
+const { home,jobs }=require("../controllers/home_controller");
+const auth=require("../config/auth");
+const setLocals=require("../config/setLocals");
+router.use(auth);
+router.use(setLocals);
+router.get('/',home);
+router.get('/jobs',jobs);
+module.exports = router;

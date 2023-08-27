@@ -1,0 +1,12 @@
+
+.navbar { 
+    background-color: #484848;
+}
+
+.navbar .navbar-nav .nav-link { 
+    color: #fff;
+    display: flex;
+    align-items: center; /* Vertical centering for icon and text */
+    gap: 5px; /* Gap between icon and text */ }
+.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+.navbar .navbar-nav .active > .nav-link { color: #fbc531; }

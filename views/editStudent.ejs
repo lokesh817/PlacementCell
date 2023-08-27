@@ -1,0 +1,55 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/student/update-student" method="POST" class="p-4 bg-light border rounded">
+                <h1>Student</h1>
+                <div class="mb-3">
+                    <label for="StudentID" class="form-label">StudentID</label>
+                    <input type="text" class="form-control" id="StudentID" name="StudentID" readonly value="<%= student.StudentId %>">
+                </div>
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" disabled value="<%= student.StudentName %>">
+                </div>
+                <div class="mb-3">
+                    <label for="Batch" class="form-label">Batch</label>
+                    <input type="number" class="form-control" id="Batch" name="Batch" disabled value="<%= student.Batch %>">
+                </div>
+                <div class="mb-3">
+                    <label for="College" class="form-label">College</label>
+                    <input type="text" class="form-control" id="College" name="College" disabled value="<%= student.College %>">
+                </div>
+                <div class="mb-3">
+                    <label for="Status" class="form-label">Status</label>
+                    <select class="form-select" id="Status" name="Status">
+                      <option value="Not Placed" <%= student.Status === 'Not Placed' ? 'selected' : '' %>>Not Placed</option>
+                      <option value="Placed" <%= student.Status === 'Placed' ? 'selected' : '' %>>Placed</option>
+                    </select>
+                  </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form action="/student/update-student-Course-Details" method="POST" class="p-4 bg-light border rounded">
+                <h1>Course Score</h1>
+                <div class="mb-3">
+                    <label for="StudentID" class="form-label">StudentID</label>
+                    <input type="text" class="form-control" id="StudentID" name="StudentID" readonly value="<%= student.StudentId %>">
+                </div>
+                <div class="mb-3">
+                    <label for="DSA" class="form-label">DSA</label>
+                    <input type="number" class="form-control" id="DSA" name="DSA">
+                </div>
+                <div class="mb-3">
+                    <label for="WEB" class="form-label">WEB DEV</label>
+                    <input type="number" class="form-control" id="WEB" name="WEB"">
+                </div>
+                <div class="mb-3">
+                    <label for="React" class="form-label">React</label>
+                    <input type="number" class="form-control" id="React" name="React">
+                </div>
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </form>
+        </div>
+    </div>
+</div>

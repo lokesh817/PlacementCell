@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/CSS/Home.css">
+<% if(!locals.isAuthenticated) { %>
+    <div class="container mt-3 d-flex justify-content-center align-items-center flex-column">
+        <h1 class="text-center">Welcome to the placement block</h1>
+        <div class="col-md-5 mt-3">
+            <img src="/Images/career-1.webp" alt="Images" class="img-fluid">
+        </div>
+    </div>
+    
+<% }else { %>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="main-container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="mb-0">Students</h1>
+                        <a href="/student/add-student" class="btn btn-primary mb-1">Add Student</a>
+                    </div>
+                    <div class="card-container">
+                        <% Students.forEach(student => { %>
+                            <div class="col-md-4">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <h5 class="card-title"><%= student.StudentName %></h5>
+                                        <p class="card-text">ID: <%= student.StudentId %></p>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">College: <%= student.College %></p>
+                                        <p class="card-text">Batch: <%= student.Batch %></p>
+                                        <p class="card-text">Status: <%= student.Status %></p>
+                                        <button type="button" class="btn btn-primary"><a href="student/edit_Student?studentID=<%= student.StudentId %>" class="btn-link-white">Edit</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="mb-0">Interviews</h1>
+                            <a href="/interview/add-interview" class="btn btn-primary ">Add Interview</a>
+                        </div>
+                        <div class="card-container">
+                            <% Interviews.forEach(interview => { %>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            <h5 class="card-title"><%= interview.CompanyName %></h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Role: <%= interview.JobRole %></p>
+    
+                                            <%
+                                                function formatDate(date) {
+                                                const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                                                return new Date(date).toLocaleDateString(undefined, options);
+                                                }
+                                            %>
+    
+                                            <p class="card-text">Date: <%= formatDate(interview.Date) %></p>
+    
+                                            <button type="button" class="btn btn-primary"><a href="interview/edit_interview?interviewID=<%= interview.InterviewId %>" class="btn-link-white"> Edit</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- Include Bootstrap JS (optional) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<% } %>

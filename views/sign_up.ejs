@@ -1,0 +1,32 @@
+
+<!-- formPartial.ejs -->
+<div class="container mt-5 forms-container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form action="/user/sign_up" method="post" class="p-4 bg-light border rounded">
+                <h2 class="mb-4">Signup Form</h2>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="empId">Employee ID:</label>
+                    <input type="number" id="empID" name="empID" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" for="password2">Re-entered Password:</label>
+                    <input type="password" id="re-password" name="password2" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-secondary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>

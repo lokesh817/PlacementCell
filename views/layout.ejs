@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include your CSS links here -->
+    <!-- ... -->
+
+    <!-- Include DataTables and other libraries -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+    <!-- ... -->
+
+    <!-- Include Bootstrap CSS and other styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <!-- ... -->
+
+    <!-- Include the full version of jQuery before DataTables -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> 
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script> 
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script> 
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script> 
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script> 
+    <!-- ... -->
+
+    <title>Placement | <%= title %></title>
+</head>
+<body>
+    <%- include('_header'); %>
+    <main id="layout-main">
+        <%- body %>
+    </main>
+    <%- include('_footer'); %>
+    
+    <!-- Include Bootstrap JS and other scripts -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Initialize DataTables -->
+    <script type="text/javascript">
+        $(document).ready(function() 
+        { 
+            $('#example').DataTable( 
+            { 
+                dom: 'Blfrtip',
+            } );
+        
+        } );
+    </script>
+    <script>
+        // Wait for the document to be ready
+        $(document).ready(function() {
+            // Toggle the collapsed navbar when the button is clicked
+            $(".navbar-toggler").click(function() {
+                $("#navbarNav").toggleClass("show");
+            });
+        });
+    </script>
+</body>
+</html>

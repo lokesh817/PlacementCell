@@ -1,0 +1,18 @@
+body{
+    background-image: radial-gradient(rgb(237, 186, 186),rgb(157, 223, 157));
+    font-size: 0.8rem;
+    min-height: 110vh;
+}
+
+.main{
+    min-height: calc(100vh - 56px); /* Adjust 56px to match your header height */
+    padding-bottom: 50px; /* Set this to match the footer's height */
+    box-sizing: border-box;
+}
+.main-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

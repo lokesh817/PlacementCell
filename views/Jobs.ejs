@@ -1,0 +1,23 @@
+
+<div class="container mt-2 bg-secondary rounded">
+    <h1 class="text-white"> Careers & Job Opportunities </h1>
+    <div class="row">
+        <% data.results.forEach(job => { %>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title"><%= job.title %></h4>
+                            <a href="<%= job.redirect_url %>" class="btn btn-primary">Apply</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Company name: <%= job.company.display_name %></p>
+                        <p class="card-text">Salary Range: <%= job.salary_min %> - <%= job.salary_max %></p>
+                        <!-- Add more properties as needed -->
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-5 forms-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/student/add-student" method="POST" class="p-4 bg-light border rounded">
+                <h1>New Student</h1>
+                <div class="mb-3">
+                    <label for="StudentID" class="form-label">StudentID</label>
+                    <input type="text" class="form-control" id="StudentID" name="StudentID" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Batch" class="form-label">Batch</label>
+                    <input type="number" class="form-control" id="Batch" name="Batch" required>
+                </div>
+                <div class="mb-3">
+                    <label for="College" class="form-label">College</label>
+                    <input type="text" class="form-control" id="College" name="College" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Status" class="form-label">Status</label>
+                    <select class="form-select" id="Status" name="Status">
+                        <option value="not_placed">Not Placed</option>
+                        <option value="placed">Placed</option>
+                        
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Student</button>
+            </form>
+        </div>
+    </div>
+</div>
